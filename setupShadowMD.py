@@ -17,11 +17,6 @@ class ShadowMD():
         parallel=False,
         startPoint=0,
         endPoint=None):
-        #logfile="log.txt"):
-
-        #if logfile is not None:
-        #    logging.basicConfig(level=logging.DEBUG, filename=logfile, format='%(asctime)s %(levelname)s:%(message)s')
-        #    self.logfile=logging.getLogger(__name__)
         
         print("Loading trajectory")
         try: 
@@ -48,8 +43,6 @@ class ShadowMD():
 
         
         print("Trajectory has "+str(len(self.trajectory))+" images.")
-
-        
 
     '''
         self.parallel=parallel
