@@ -22,12 +22,10 @@ class ShadowMD():
         try: 
             self.trajectory=io.read(trajectory, ":")
         except:
-            self.logfile.error("ERROR: Could not load trajectory file with name: ", trajectory)
-            self.logfile.error("Stopping")
+            print("ERROR: Could not load trajectory file with name: ", trajectory)
+            print("Stopping")
             exit()
         print("Loaded trajectory file succesfully.")
-        #prepare the trajectory
-        #self.trajectory=self.trajectory[::selectEvery]
 
         #set the default startpoint and endpoint - these can be changed manually
         if startPoint is None:
@@ -38,7 +36,7 @@ class ShadowMD():
             self.endPoint=len(self.trajectory)
         else:
             self.endPoint=endPoint
-        print("Starting at:", self.startPoint, "Ending at:", endPoint, " For a total of", endPoint-self.startPoint, "images")
+        print("Starting at:", self.startPoint, "Ending at:", self.endPoint, " For a total of", self.endPoint-self.startPoint, "images")
         self.trajectory=self.trajectory[self.startPoint:endPoint]
 
         
