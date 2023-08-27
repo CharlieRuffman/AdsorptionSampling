@@ -11,6 +11,9 @@ import sys
 
 selectEvery=80 #Resolution of sampling in timesteps - must match the value set in plotShadowMD.py
 
+#print what selectEvery is set to
+print("Resolution set to take every:", selectEvery, "images (can be changed in the script)")
+
 try:
     filename=sys.argv[1]
 except:
