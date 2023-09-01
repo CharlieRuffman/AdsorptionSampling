@@ -14,7 +14,7 @@ USER SET PARAMETERS
 '''
 
 #add a translation factor variable for the reference state - This is to adjust the reference state energy to the same average as the clean MD simulation 
-traspositionFactor=0.212195576
+traspositionFactor=0.027903438
 
 
 #detection window settings for low and high energy windows
