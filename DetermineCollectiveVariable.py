@@ -25,7 +25,7 @@ print("Important: ensure atom order is the same in both files")
 
 #check that the structures have the same number of atoms
 if len(struct1)!=len(struct2):
-    print("Structures have different number of atoms")
+    print("Structures have different number of atoms
     exit()
 
 #calculate the RMSD for each atom and each coordinate separately

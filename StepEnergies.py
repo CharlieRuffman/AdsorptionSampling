@@ -4,7 +4,6 @@ import struct
 import ase
 from ase import io
 import numpy as np
-import logging
 import multiprocessing as mp 
 import os
 import sys
