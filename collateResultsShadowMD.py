@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import struct
+
 import ase
 from ase import io
 import numpy as np
@@ -36,12 +36,12 @@ class ShadowMD():
         print("Processing images from "+str(self.minImage)+" to "+str(self.maxImage))
         for i in range(self.minImage,self.maxImage+1):
             try:
-                struct=io.read("image"+str(i)+"/OUTCAR")
+                struct=io.read("image"+str(i)+"/OUTCAR", ":")
             except:
                 print("structure "+ str(i)+ " not found, continuing")
                 continue
-            energy=struct.get_potential_energy()
-            computedTrajectory.write(struct)
+            energy=struct[0].get_potential_energy()
+            computedTrajectory.write(struct[0])
             if i==self.minImage:
                 stepEnergies=np.array([[i, energy, energy+adsorbateEBox]])
             else:

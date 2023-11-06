@@ -14,7 +14,10 @@ USER SET PARAMETERS
 '''
 
 #add a translation factor variable for the reference state - This is to adjust the reference state energy to the same average as the clean MD simulation 
-traspositionFactor=0.027903438
+traspositionFactor=0
+
+#save highest and lowest energy snapshosts
+saveHighestLowest=True
 
 
 #detection window settings for low and high energy windows
@@ -139,7 +142,7 @@ if detectHighLow:
     highWindows=np.unique(highWindows)+equilSteps
     lowWindows=np.unique(lowWindows)+equilSteps
 
-    #separate the low windows where their values are non-consequtive
+    #separate the low windows where their values are non-consecutive
     separatedLow=np.split(lowWindows, np.where(np.diff(lowWindows) != 1)[0]+1)
     #do the same for the high windows
     separatedHigh=np.split(highWindows, np.where(np.diff(highWindows) != 1)[0]+1)
@@ -167,6 +170,7 @@ print("Low: ", lowWindows)
 
 
 
+
 printAdsE=True
 
 
@@ -176,6 +180,7 @@ a=io.read("SelectedImg.traj", ":")
 if len(highWindows) != 0:
     highAv=np.mean([differenceDataEquilibrated[i-equilSteps] for i in highWindows])
     print("High avereage:", highAv)
+   
 else:
     print("No high windows detected with current settings - adjust and try again")
 
@@ -226,6 +231,10 @@ if printAdsE:
 
 time=np.arange(0,len(differenceData))*selectEvery*timestep/(1000)
 plt.plot(time[:],differenceData[:],color="black", linewidth=1.5)
+
+#also write out the x and y to a file as 2dp
+np.savetxt("rawAdsorptionEnergy.txt", np.transpose([np.arange(1, len(differenceData)+1), time[:],differenceData[:]]), fmt="%.2f")
+
 
 plt.axhline(mean, color="darkred", xmin=equilTime/time[-1], linewidth=1.5, linestyle="--")
 if detectHighLow:
