@@ -14,7 +14,7 @@ USER SET PARAMETERS
 '''
 
 #add a translation factor variable for the reference state - This is to adjust the reference state energy to the same average as the clean MD simulation 
-traspositionFactor=0
+traspositionFactor=0.027739265
 
 #save highest and lowest energy snapshosts
 saveHighestLowest=True
@@ -22,10 +22,10 @@ saveHighestLowest=True
 
 #detection window settings for low and high energy windows
 detectionWindowSize=1 #minimum size of high/low window in ps
-proportionExceeding=0.6 #proportion of the window that must be above/below the threshold
-sdevProportion=0.6 #standard deveiation threshold for high/low windows
+proportionExceeding=0.75 #proportion of the window that must be above/below the threshold
+sdevProportion=0.7 #standard deveiation threshold for high/low windows
 
-equilTime=10 #time to be excluded from analysis for equilibration the start of the MD run in ps
+equilTime=6 #time to be excluded from analysis for equilibration the start of the MD run in ps
 selectEvery=80 #Resolution of sampling in timesteps - important for getting the timescales correct
 
 timestep=1 #timestep of the AIMD simulation in fs

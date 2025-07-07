@@ -11,7 +11,7 @@ traspositionFactor=0
 
 
 #steps to omit - first 10 ps 
-omitSteps=1250
+omitSteps=0#125
 
 #print a wanrning if the transposition factor is set to anything but zero
 if traspositionFactor!=0:

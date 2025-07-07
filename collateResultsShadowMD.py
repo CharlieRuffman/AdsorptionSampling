@@ -12,10 +12,11 @@ import sys
 '''
 User set variable for the energy of the adsorbate in a box - has to be calculated separately 
 '''
-adsorbateEBox=-21.97165359+1/2*-6.40408151
+adsorbateEBox=1/2*-6.40408151
 #-21.97165359+1/2*-6.40408151 #formate
 #-30.205455 - -3.38362605*2 # methanol without H2
 #-30.205455 # methanol
+#-6.40408151 #H2
 
 #range of image files created by setupShadowMD.py to process
 minImage=sys.argv[1] #first image to process
